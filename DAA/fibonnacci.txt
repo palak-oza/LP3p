@@ -1,0 +1,35 @@
+import time
+
+# Recursive Fibonacci function
+def recursive_fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return recursive_fibonacci(n - 1) + recursive_fibonacci(n - 2)
+
+# Iterative Fibonacci function
+def iterative_fibonacci(n):
+    fib = [0, 1]
+    for i in range(2, n + 1):
+        fib.append(fib[i - 1] + fib[i - 2])
+    return fib[n]
+
+# Driver code to test both approaches and measure execution time
+if __name__ == "__main__":
+    n = int(input())  # Change this value to test for different Fibonacci numbers
+
+    # Measure execution time for recursive approach
+    start_time = time.time()
+    recursive_result = recursive_fibonacci(n)
+    recursive_time = time.time() - start_time
+
+    # Measure execution time for iterative approach
+    start_time = time.time()
+    iterative_result = iterative_fibonacci(n)
+    iterative_time = time.time() - start_time
+
+    print(f"Recursive Fibonacci({n}) = {recursive_result}")
+    print(f"Recursive Approach Time: {recursive_time:.6f} seconds")
+
+    print(f"Iterative Fibonacci({n}) = {iterative_result}")
+    print(f"Iterative Approach Time: {iterative_time:.6f} seconds")
